@@ -12,7 +12,7 @@ const registerUser = async (req, res) => {
     return res.status(400).json({ message: error.details[0].message });
   }
 
-  const { firstname, lastname, email, password } = req.body;
+  const { username, email, password } = req.body;
 
   try {
     let existingUser = await User.findOne({ email });
@@ -22,8 +22,7 @@ const registerUser = async (req, res) => {
     }
 
     const newUser = new User({
-      firstname,
-      lastname,
+      username,
       email,
       password,
     });
