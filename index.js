@@ -7,21 +7,19 @@ const app = express();
 
 const cloudinary = require('cloudinary'); 
 
+dotenv.config();
 cloudinary.v2.config({
-  cloud_name: "du9xly9oi",
-  api_key: "131116985193162",
-  api_secret: "BdZEjNw6rZy9i76DHK_yWv6OS3Q"
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-// YOUR_CLOUD_NAME = "du9xly9oi"
-// YOUR_API_SECRET = "BdZEjNw6rZy9i76DHK_yWv6OS3Q"
-// YOUR_API_KEY = "131116985193162"
+
 
 app.use(express.json());
 
 app.use(cors());
 
-dotenv.config();
 
 dbConnect()
 
