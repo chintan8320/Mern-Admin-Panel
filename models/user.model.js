@@ -16,6 +16,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  wishList: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product'
+  }],
+  orders: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product'
+  }]
 }, {
   timestamps: true
 });
