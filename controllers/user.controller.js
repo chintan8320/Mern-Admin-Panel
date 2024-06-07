@@ -74,7 +74,7 @@ const loginUser = async (req, res) => {
         if (err) throw err;
         const expiryDate = new Date();
                 expiryDate.setDate(expiryDate.getDate() + 7);
-        res.cookie('jwt', token, { expires: expiryDate  ,httpOnly: true, secure: true, sameSite: 'none' });
+        res.cookie('jwt', token, { expires: expiryDate  ,httpOnly: false, secure: false});
         res.json({ token });
       }
     );
