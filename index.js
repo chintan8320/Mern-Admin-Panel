@@ -23,7 +23,12 @@ app.use(express.urlencoded({
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({credentials: true, origin: true}));
+const corsOptions = {
+  origin: 'https://e-commerce-nkdszu14l-chintan8320s-projects.vercel.app/', // Replace with your frontend domain
+  credentials: true, // Reflect CORS headers in preflight response
+};
+
+app.use(cors(corsOptions));
 
 
 dbConnect()
