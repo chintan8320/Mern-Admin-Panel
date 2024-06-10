@@ -72,9 +72,6 @@ const loginUser = async (req, res) => {
       { expiresIn: "1d" },
       (err, token) => {
         if (err) throw err;
-        const expiryDate = new Date();
-                expiryDate.setDate(expiryDate.getDate() + 7);
-        res.cookie('jwtToken', token, { expires: expiryDate  ,httpOnly: true, secure:true, sameSite: "lax"});
         res.json({ token });
       }
     );
