@@ -74,7 +74,7 @@ const loginUser = async (req, res) => {
         if (err) throw err;
         const expiryDate = new Date();
                 expiryDate.setDate(expiryDate.getDate() + 7);
-        res.cookie('jwtToken', token, { expires: expiryDate  ,httpOnly: true, domain: '.vercel.app'});
+        res.cookie('jwtToken', token, { expires: expiryDate  ,httpOnly: true, secure: true, SameSite:'None', domain: 'localhost'});
         res.json({ token });
       }
     );
