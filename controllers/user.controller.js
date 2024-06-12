@@ -60,9 +60,7 @@ const loginUser = async (req, res) => {
     }
 
     const payload = {
-      user: {
-        id: user.id,
-      },
+      user: user
     };
     
 
